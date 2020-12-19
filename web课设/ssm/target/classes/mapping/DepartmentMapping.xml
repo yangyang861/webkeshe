@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.IDepartmentDao">
+  <resultMap id="BaseResultMap" type="vo.Department">
+    <id column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="sn" property="sn" />
+  </resultMap>
+
+  <!--查总数-->
+  <select id="queryForCount" resultType="int">
+    select count(e.id) from department e
+  </select>
+  <!--查数据-->
+  <select id="queryForList" resultMap="BaseResultMap">
+    select id, name, sn from department
+    limit #{startIndex}, #{pageSize}
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
